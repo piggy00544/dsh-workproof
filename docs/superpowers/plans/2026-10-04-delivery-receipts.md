@@ -14,10 +14,10 @@
 
 Files: `packages/dsh-delivery-receipts/src/domain.js`, `src/artifacts.js`, `test/domain.test.js`, `test/artifacts.test.js`.
 
-- [ ] Write failing node:test assertions for exported `createReceipt`, `inspectReceipt`, `refreshReceipt`, `decideReceipt`, `receiptMarkdown`, `probeArtifact` and `previewArtifact`.
-- [ ] Implement after observing the expected failures; retain passing tests for traversal, symlink, nonregular file, stale acceptance and size bounds.
-- [ ] Run `node --test packages/dsh-delivery-receipts/test/*.test.js` and record output.
-- [ ] Review the actual diff against the spec, then commit only this package's files.
+- [x] Write failing node:test assertions for exported `createReceipt`, `inspectReceipt`, `refreshReceipt`, `decideReceipt`, `receiptMarkdown`, `probeArtifact` and `previewArtifact`.
+- [x] Implement after observing the expected failures; retain passing tests for traversal, symlink, nonregular file, stale acceptance and size bounds.
+- [x] Run `node --test packages/dsh-delivery-receipts/test/*.test.js` and record output.
+- [x] Review the actual diff against the spec, then commit reviewed project files.
 
 Domain contracts (all timestamps supplied by the caller):
 
@@ -40,30 +40,30 @@ const next = refreshReceipt(accepted, [changed], '2026-10-04T00:02:00Z');
 
 ## Task 2: Actual Harness adapter
 
-Files: package `index.js`, `client.js`, `package.json`, `cordis.patch.yml`, `test/adapter.test.js`.
+Files: package `index.js`, `client.js`, `package.json`, `cordis.patch.yml`, `test/service.test.js`, `test/client.test.js`, root `scripts/host-smoke.mjs`.
 
-- [ ] Read tagged official plugin templates and tool/command/storage/slot contracts; pin the tested runtime version rather than invent API names.
-- [ ] Write adapter tests for session scoping, input validation, shared operation handlers and absence of an agent confirmation tool.
-- [ ] Implement receipt registration, listing, inspection and refresh tools. Tool operations derive session/workspace context from Harness, not caller paths.
-- [ ] Implement UI list/detail, bounded preview, checks/provenance, recheck/refresh, decisions and Markdown download. Use official theme tokens only.
-- [ ] Install into a fresh test DSH_HOME via the official plugin CLI/manager, not hand-written profile edits; verify actual registration and behavior.
-- [ ] Independently review spec compliance then code quality/security; repair findings with regression tests.
+- [x] Read tagged official plugin templates and tool/command/storage/slot contracts; pin the tested runtime version rather than invent API names.
+- [x] Write adapter tests for session scoping, input validation, shared operation handlers and absence of an agent confirmation tool.
+- [x] Implement receipt registration, listing, inspection and refresh tools. Tool operations derive session/workspace context from Harness, not caller paths.
+- [x] Implement UI list/detail, bounded preview, checks/provenance, recheck/refresh, decisions and Markdown download. Use official theme tokens only.
+- [x] Install into a fresh test DSH_HOME via the official plugin CLI/manager, not hand-written profile edits; verify actual registration and behavior.
+- [x] Independently review spec compliance then code quality/security; repair findings with regression tests.
 
 ## Task 3: Public package and end-to-end proof
 
 Files: package `README.md`, `LICENSE`, root `package.json`, `scripts/check-release.mjs`, `examples/`, `docs/verification.md`, release `.tgz` and checksums.
 
-- [ ] Create synthetic article/report/code fixtures and complete their receipts through the real adapter.
-- [ ] Exercise light/dark UI, keyboard navigation, stale/missing files, restart persistence and remove/reinstall in the isolated profile.
-- [ ] Pack prebuilt files with `npm pack`; inspect the archive allowlist, scan for private paths/secrets and verify no install/prepare script.
+- [x] Create synthetic article/report/release-note fixtures and exercise their receipts through the real adapter; actual scenario coverage is listed in `docs/verification.md`.
+- [x] Exercise light/dark UI, keyboard navigation, stale/missing files, restart persistence and remove/reinstall in the isolated profile.
+- [x] Pack prebuilt files with `npm pack`; inspect the archive allowlist, scan for private paths/secrets and verify no install/prepare script.
 - [ ] Create GitHub Release only after tests/review pass. Download that published archive into a second clean location, compare its checksum and smoke install/remove it.
 - [ ] Submit the exact community YAML only after release verification and the repository age rule is satisfied; report submission separately from maintainer acceptance.
 
 ## Task 4: Evidence Ledger decision
 
-- [ ] After Delivery Receipts passes review, specify the separate claim/source ledger against existing community coverage.
-- [ ] Reuse infrastructure only when it is already tested; give the second plugin its own domain tests, bundle, documentation and installation verification.
-- [ ] Never publish an unfinished placeholder package to increase plugin count.
+- [x] After Delivery Receipts passes review, specify the separate claim/source ledger against existing community coverage.
+- [x] Reuse infrastructure only when it is already tested; give the second plugin its own domain tests, bundle, documentation and installation verification.
+- [x] Never publish an unfinished placeholder package to increase plugin count.
 
 ## Progress and boundaries
 
