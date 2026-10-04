@@ -56,7 +56,7 @@ Files: package `README.md`, `LICENSE`, root `package.json`, `scripts/check-relea
 - [x] Create synthetic article/report/release-note fixtures and exercise their receipts through the real adapter; actual scenario coverage is listed in `docs/verification.md`.
 - [x] Exercise light/dark UI, keyboard navigation, stale/missing files, restart persistence and remove/reinstall in the isolated profile.
 - [x] Pack prebuilt files with `npm pack`; inspect the archive allowlist, scan for private paths/secrets and verify no install/prepare script.
-- [ ] Create GitHub Release only after tests/review pass. Download that published archive into a second clean location, compare its checksum and smoke install/remove it.
+- [x] Create GitHub Release only after tests/review pass. Download that published archive into a second clean location, compare its checksum and smoke install/remove it.
 - [ ] Submit the exact community YAML only after release verification and the repository age rule is satisfied; report submission separately from maintainer acceptance.
 
 ## Task 4: Evidence Ledger decision
@@ -71,3 +71,4 @@ Files: package `README.md`, `LICENSE`, root `package.json`, `scripts/check-relea
 - Host upgrade is an independent task with recoverable app/data backups.
 - Public distribution: GitHub Release tarballs; npm publication is optional and currently unauthenticated.
 - Author identity: 牛村木木山. No private workspace, company data, profile file, credential or conversation is a release asset.
+- Completed public release: `v0.1.0`, both packages verified through public download and a second clean installation/removal. Community PR remains pending the age gate; submission was authorized for a later check. GitHub-hosted CI is inactive because the current OAuth scope cannot create workflows; all recorded source tests ran locally.

@@ -16,7 +16,7 @@ Target: official DeepSeek Harness Desktop/Web runtime **0.2.0-rc.2**, macOS arm6
 | Official CLI installation in an isolated profile | Installed and host started; final installed source compared with the checkout |
 | Native UI scenarios, themes, keyboard and download | Passed in the official isolated rc.2 Web UI on 2026-10-04; details below |
 | Full web-host restart and plugin remove/reinstall | Passed: official remove made the bundle/source and command unavailable; official reinstall restored all three synthetic receipts with their exact versions and decisions |
-| Public Release archive re-download and clean-profile installation | Pending |
+| Public Release archive re-download and clean-profile installation | Passed on 2026-10-04: anonymous download, published checksum and archive audit matched; official CLI installed the downloaded package in a second new profile; registered command recorded and inspected a synthetic file with the expected SHA-256 |
 
 The host integration test executes registered tools and commands through actual official services, verifies exact UTF-8/binary hashes, rejects a model-side acceptance action and cross-session reads, checks accepted-to-stale-to-refreshed transitions and rejects old-version decisions. It disposes and reopens actual JSON/Domain services to verify persisted records. It does not exercise an LLM, the Electron IPC boundary, or the full browser transport; those are distinct checks.
 
@@ -45,7 +45,7 @@ Target: official runtime **0.2.0-rc.2**, local macOS arm64 workspace.
 | Packed allowlist/privacy audit | 12 intended files; no install scripts, credentials or private host paths found |
 | Native UI, selective export and review invalidation | Passed on 2026-10-04; details below |
 | Official installation, full restart and remove/reinstall | Passed: remove left Delivery Receipts available but removed the ledger command/bundle/source; reinstall and a full host restart restored version 7, two sources, two claims and one question with review cleared, contradiction and open question intact |
-| Public archive re-download and clean-profile installation | Pending |
+| Public archive re-download and clean-profile installation | Passed on 2026-10-04: anonymous download, published checksum and archive audit matched; official CLI installed the downloaded package in the second new profile; registered command saved and inspected a synthetic proposal at version 1 with no review |
 
 The real host test caught an invalid nested tool-schema representation (`required` array). The adapter was changed to the official rc.2 field-level `required: true` representation and the failing test reran successfully. Export privacy applies to the generated Markdown only; the internal owning-session operation response retains the full ledger.
 
@@ -57,9 +57,22 @@ Actual native UI checks in the same isolated official host:
 - Editing the existing question through the official command advanced to version 7 and cleared review; refreshing the UI showed the edited text, unreviewed state and cleared export preview. The contradiction and open question remained visible.
 - Both native light/dark themes rendered correctly at the tested desktop viewport with no horizontal overflow. This is not a claim of full accessibility or mobile coverage. Screenshots: [light](screenshots/evidence-ledger-light.png), [dark](screenshots/evidence-ledger-dark.png).
 
+## Public release identity
+
+Release: [v0.1.0](https://github.com/piggy00544/dsh-workproof/releases/tag/v0.1.0), published **2026-10-04T03:03:44Z**, source commit `0a60ea9fcd3204416118358d27456977a77e5947`. Later documentation updates do not replace the release archives.
+
+| Archive | Bytes | SHA-256 |
+|---|---:|---|
+| `dsh-delivery-receipts-0.1.0.tgz` | 24,728 | `b84e3e344805ff5090ec6617f829649800b2217d29bfa5c4f166db6b76918446` |
+| `dsh-evidence-ledger-0.1.0.tgz` | 23,927 | `6133bc8153fa1084fff4ab0965b5769d3a72cb33f11f771ef9ca9d64c410d215` |
+
+The second-profile checks used anonymous HTTP downloads of the public assets and `SHA256SUMS`, not copies of the earlier lab archives. Archive contents matched the expected installed files. Both functional command checks ran with zero model prompts. Official CLI removal then succeeded for both packages; a subsequent fresh host confirmed both commands absent and unresolved, with dependencies, bundles and installed source links removed. All test hosts were stopped after verification, with synthetic evidence retained.
+
+Community-list inclusion is separate from this public Release; the submission drafts are in `docs/community/` and are not evidence of an accepted PR. The source repository was created at `2026-10-04T01:41:29Z`; the current community age gate cannot pass before `2026-10-05T01:41:29Z`. No filler commits or placeholder PR were used to avoid that gate.
+
 ## User-profile and platform boundaries
 
-The official Desktop app was upgraded separately to `0.2.0-rc.2`. Plugin UI and lifecycle tests used the official bundled runtime in a disposable `DSH_HOME`, not the user's existing conversations or model credentials. These new plugins have **not** been silently installed into the user's live Desktop profile: its active-agent state was not established. The tests do not claim a successful model workflow or complete Electron IPC coverage.
+Plugin UI and lifecycle tests used the official `0.2.0-rc.2` bundled runtime in disposable `DSH_HOME` profiles, not pre-existing conversations or model credentials. No pre-existing production profile was modified by plugin testing. The tests do not claim a successful model workflow, complete Electron IPC coverage or safe hot installation during an active agent turn. Installation into an existing Desktop profile is a separate operation; finish running work before changing its plugins.
 
 ## Reproduce source checks
 

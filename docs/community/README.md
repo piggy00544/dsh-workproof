@@ -1,6 +1,6 @@
 # Community submission preparation
 
-Status: local drafts only. No community pull request or acceptance is recorded here. The tarball URLs in the two YAML files are intended release locations, not evidence that the assets already exist or install successfully.
+Status: submission drafts only. No community pull request or acceptance is recorded here. The two fixed URLs now point to published v0.1.0 assets; anonymous re-download, checksums and a second clean-profile installation/removal passed as recorded in [verification](../verification.md). The repository age gate remains pending; recheck all conditions below before submitting.
 
 Target: [awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin), a community-curated list. A listing is not official DeepSeek approval or a security audit.
 

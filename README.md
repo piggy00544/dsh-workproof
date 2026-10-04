@@ -15,6 +15,19 @@
 
 英文文档：[Delivery Receipts](packages/dsh-delivery-receipts/README.md) · [Evidence Ledger](packages/dsh-evidence-ledger/README.md)
 
+<details>
+<summary>查看真实界面：全部为合成测试材料</summary>
+
+交付回执：当前文件、版本和检查证据放在同一处。
+
+![交付回执在官方 Harness 中的浅色界面](docs/screenshots/delivery-receipts-light.png)
+
+研究证据账本：论点和结构性提示分开，“已审阅”不抹去反证。
+
+![研究证据账本在官方 Harness 中的深色界面](docs/screenshots/evidence-ledger-dark.png)
+
+</details>
+
 ## 安装与兼容
 
 [下载 Release](https://github.com/piggy00544/dsh-workproof/releases) · [验证记录](docs/verification.md) · [反馈问题](https://github.com/piggy00544/dsh-workproof/issues)
@@ -22,6 +35,8 @@
 首版 `0.1.0` 精确面向 **Harness `0.2.0-rc.2`，Node.js 22+，macOS 本地工作区**。其他宿主版本、系统和远程工作区不作未经验证的兼容承诺。源代码测试、安装包测试和社区收录是不同状态，见验证记录。
 
 Release 使用 `.tgz` 预构建包及 `SHA256SUMS`，不需要 npm 账号，两个插件包自身不含安装时脚本。对照校验和后，按各插件文档安装到你应用实际使用的 profile；文档中的 `web` 只是示例，不能拿来覆盖桌面 profile。
+
+**官方 Desktop 用户：** 先完成正在运行的任务，再从左侧“插件”→“添加插件”，在“包名或地址”粘贴 Release `.tgz` 的完整地址，点“安装”，完成后点“立即启用”。不要把整条 CLI 命令粘进输入框。两个插件分别安装；只有宿主提示下次启动生效时才完整退出并重开。详见[桌面安装指引与可复制地址](docs/desktop-install.md)。
 
 新手可先试交付回执：
 
