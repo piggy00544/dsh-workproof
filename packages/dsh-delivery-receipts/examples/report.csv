@@ -1,0 +1,4 @@
+row_kind,label,synthetic_units,note
+input,Sample A,2,Entirely synthetic
+input,Sample B,3,Entirely synthetic
+total,Demonstration total,9,Intentionally wrong; correct total is 5

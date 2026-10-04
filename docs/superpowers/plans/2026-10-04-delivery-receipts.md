@@ -25,7 +25,7 @@ Domain contracts (all timestamps supplied by the caller):
 const observation = { path: 'report.md', status: 'ok', size: 8, sha256: 'a'.repeat(64) };
 const r = createReceipt({ id: 'r1', title: 'Report', paths: ['report.md'], checks: ['Numbers checked'], now: '2026-10-04T00:00:00Z' }, [observation]);
 const view = inspectReceipt(r, [observation]);
-// view.state === 'review_required'; view.claims[0].source === 'agent'
+// view.state === 'review_required'; view.claims.source === 'agent'
 const accepted = decideReceipt(r, [observation], { decision: 'accepted', note: '', now: '2026-10-04T00:01:00Z' });
 // inspectReceipt(accepted, [observation]).state === 'accepted'
 const changed = { ...observation, sha256: 'b'.repeat(64) };
